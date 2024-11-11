@@ -13,7 +13,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
-        submodules: recursive  # Inicializa e atualiza todos os submódulos
+        submodules: recursive  # Garante que todos os submódulos são carregados
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
@@ -29,8 +29,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
         publish_branch: gh-pages
-    ```
-
-**Explicação das Modificações:**
-
-- **`submodules: recursive`**: Esta opção no passo `actions/checkout` assegura que todos os submódulos, incluindo o tema `til`, sejam inicializados e atualizados durante o processo de checkout.
