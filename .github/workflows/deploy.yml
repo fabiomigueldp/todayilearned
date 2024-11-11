@@ -13,7 +13,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
-        submodules: true  # Carrega os submódulos, incluindo o tema
+        submodules: recursive  # Inicializa e atualiza todos os submódulos
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
@@ -29,3 +29,17 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
         publish_branch: gh-pages
+    ```
+
+**Explicação das Modificações:**
+
+- **`submodules: recursive`**: Esta opção no passo `actions/checkout` assegura que todos os submódulos, incluindo o tema `til`, sejam inicializados e atualizados durante o processo de checkout.
+
+### 3. Commit e Push das Alterações no Workflow
+
+Após atualizar o arquivo `deploy.yml`, faça commit e push das alterações:
+
+```bash
+git add .github/workflows/deploy.yml
+git commit -m "Configura GitHub Actions para inicializar submódulos recursivamente"
+git push origin main
