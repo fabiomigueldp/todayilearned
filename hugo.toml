@@ -1,0 +1,4 @@
+baseURL = 'https://fabiomigueldp.github.io/todayilearned/'
+languageCode = 'en-us'
+title = 'Today i Learned Task'
+theme = "til"
